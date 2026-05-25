@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          cd "React CI Pipline  lab2/example-react-app-main" 2>/dev/null || cd "example-react-app-main"
+          npm ci
+
+      - name: Run Test
+        run: |
+          cd "React CI Pipline  lab2/example-react-app-main" 2>/dev/null || cd "example-react-app-main"
+          npm test
